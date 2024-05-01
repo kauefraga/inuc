@@ -1,6 +1,6 @@
 # Inuc
 
-> Um cliente bonito e completo de login/logout. Veja o servidor em [inus](https://github.com/kauefraga/inus).
+> Um cliente fenomenal de login/logout. Veja o servidor em [inus](https://github.com/kauefraga/inus).
 
 Contextualizando, inuc e [inus](https://github.com/kauefraga/inus) são as duas partes de um só projeto, o inu. A palavra "*inu*" vem do japonês e traduz para "cachorro", um animal confiável e fenomenal. 
 
