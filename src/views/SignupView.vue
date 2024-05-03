@@ -9,11 +9,28 @@ const user = reactive<User>({
   name: "",
 });
 
-const handleForm = () => console.table({
-  name: user.name,
-  email: user.email,
-  password: user.password,
-});
+const baseUrl = import.meta.env.PROD
+  ? 'https://inus.onrender.com'
+  : 'http://localhost:3000';
+
+const handleForm = async () => {
+  console.table({
+    name: user.name,
+    email: user.email,
+    password: user.password,
+  });
+
+  const response = await fetch(`${baseUrl}/users`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user)
+  });
+  const json = await response.json();
+
+  console.log(json);
+}
 </script>
 
 <template>
