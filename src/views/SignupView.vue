@@ -14,12 +14,6 @@ const baseUrl = import.meta.env.PROD
   : 'http://localhost:3000';
 
 const handleForm = async () => {
-  console.table({
-    name: user.name,
-    email: user.email,
-    password: user.password,
-  });
-
   const response = await fetch(`${baseUrl}/users`, {
     method: 'POST',
     headers: {
@@ -29,7 +23,7 @@ const handleForm = async () => {
   });
   const json = await response.json();
 
-  console.log(json);
+  console.log(json["token"]);
 }
 </script>
 
@@ -44,34 +38,37 @@ const handleForm = async () => {
       v-on:submit.prevent="handleForm"
     >
       <header>
-        <h1 class="text-xl font-medium text-zinc-900">Crie sua conta</h1>
+        <h1 class="text-center text-xl text-zinc-900">Crie sua conta</h1>
       </header>
 
       <div class="flex flex-col gap-2">
         <FormInput
           id="username"
           type="text"
-          placeholder="Nome de usuário"
+          label="Nome/apelido"
+          placeholder="joaosilva"
           v-model="user.name"
         />
         <FormInput
           id="email"
           type="email"
-          placeholder="E-mail"
+          label="E-mail"
+          placeholder="joao.silva@gmail.com"
           v-model="user.email"
         />
         <FormInput
           id="password"
           type="password"
-          placeholder="Senha"
+          label="Senha"
+          placeholder="senh4mu1t0f0rtedoj040"
           v-model="user.password"
         />
       </div>
 
       <button
         class="
-          bg-indigo-800 hover:bg-indigo-700 active:bg-indigo-600
-          p-2 rounded-sm text-white
+          border-2 border-transparent p-2 rounded-sm
+          bg-indigo-800 text-white hover:border-white active:bg-indigo-700 transition
         "
       >
         Criar conta

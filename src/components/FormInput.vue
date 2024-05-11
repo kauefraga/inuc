@@ -5,15 +5,22 @@ const model = defineModel<string>();
 
 const props = defineProps<{
   type: InputTypeHTMLAttribute
-  placeholder: string
+  placeholder?: string
   id: string
+  label: string
 }>();
 
-const { placeholder, type } = toRefs(props);
+const { label, placeholder, type, id } = toRefs(props);
 
 </script>
 
 <template>
+  <label
+    :for="id"
+    class="select-none font-medium"
+  >
+    {{ label }}
+  </label>
   <input
     :type="type"
     :placeholder="placeholder"
@@ -21,8 +28,8 @@ const { placeholder, type } = toRefs(props);
     v-model="model"
     required="true"
     class="
-      border-2 focus:border-indigo-800 hover:border-indigo-500
-      p-2 rounded-sm outline-none
+      border-2 p-2 rounded-sm outline-none
+      focus:border-indigo-800 hover:border-indigo-500 transition
     "
   />
 </template>
