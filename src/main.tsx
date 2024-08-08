@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { HomePage, CreateUserPage } from './pages/index';
+import { HomePage, CreateUserPage, PrivatePage } from './pages/index';
 import './main.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/user/create',
     element: <CreateUserPage />,
+  },
+  {
+    path: '/private',
+    element: <PrivatePage />,
   },
 ]);
 
